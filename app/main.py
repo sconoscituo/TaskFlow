@@ -3,7 +3,7 @@ from app.middleware.security_headers import SecurityHeadersMiddleware
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 from app.database import init_db
-from app.routers import users, projects, tasks, payments
+from app.routers import ai_tasks, users, projects, tasks, payments
 from app.config import config
 
 
@@ -32,6 +32,7 @@ app.include_router(users.router)
 app.include_router(projects.router)
 app.include_router(tasks.router)
 app.include_router(payments.router)
+app.include_router(ai_tasks.router, prefix="/api/v1")
 
 
 @app.get("/")
